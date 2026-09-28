@@ -4,10 +4,11 @@ import { Segmented, Spinner } from "./ui";
 
 const EXAMPLES = ["AAPL", "MSFT", "NVDA", "KO", "CAT"];
 
-export function TickerForm({ onSubmit, loading, initialSource }: {
+export function TickerForm({ onSubmit, loading, initialSource, loadedTicker }: {
   onSubmit: (ticker: string, source: Source) => void;
   loading: boolean;
   initialSource: Source;
+  loadedTicker?: string;
 }) {
   const [ticker, setTicker] = useState("");
   const [source, setSource] = useState<Source>(initialSource);
@@ -44,7 +45,11 @@ export function TickerForm({ onSubmit, loading, initialSource }: {
             <Segmented
               label="Data source"
               value={source}
-              onChange={setSource}
+              onChange={(next) => {
+                setSource(next);
+                // Switching source re-runs the model already on screen.
+                if (loadedTicker && next !== source) onSubmit(loadedTicker, next);
+              }}
               options={[
                 { value: "yfinance", label: "Yahoo Finance" },
                 { value: "edgar", label: "SEC EDGAR" },

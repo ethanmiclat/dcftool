@@ -132,7 +132,7 @@ export default function App() {
                 <Term k="wacc">discount rate</Term> · <Term k="terminal_value">Gordon terminal value</Term>
               </p>
             </div>
-            <TickerForm onSubmit={load} loading={loading} initialSource={initial.source} />
+            <TickerForm onSubmit={load} loading={loading} initialSource={initial.source} loadedTicker={data?.snapshot.ticker} />
           </div>
         </div>
       </header>
