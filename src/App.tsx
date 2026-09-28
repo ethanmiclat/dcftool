@@ -125,7 +125,7 @@ export default function App() {
           <div className="flex flex-col gap-6 py-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <div className="font-serif text-[32px] font-medium leading-none tracking-[-0.02em]">
-                Intrinsic<span className="text-accent">.</span>
+                DCFTool<span className="text-accent">.</span>
               </div>
               <p className="mt-2 text-[13px] text-ink-3">
                 <Term k="unlevered">Unlevered</Term> <Term k="dcf">DCF</Term> · <Term k="cost_of_equity">CAPM</Term>{" "}
